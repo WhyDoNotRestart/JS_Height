@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		反选：<input type="checkbox" class="s1">
+		<p></p>
+		全选: <input type="checkbox" class="s2">
+		<p></p>
+		全不选<input type="checkbox" class="s3">
+		<p></p>
+		<input type="checkbox" class="a1">
+		<input type="checkbox" class="a1">
+		<input type="checkbox" class="a1">
+		<input type="checkbox" class="a1">
+		<input type="checkbox" class="a1">
+		 </div>
+		 <script>
+			var button =document.getElementsByClassName('a1')
+			var s1 =document.getElementsByClassName('s1')
+			var s2 =document.getElementsByClassName('s2')
+			var s3 =document.getElementsByClassName('s3')
+			s1[0].addEventListener('click',function(){
+				for(let i =0;i<button.length;i++){
+					button[i].checked=!button[i].checked
+				}
+			})
+			s2[0].addEventListener('click',function(){
+				for(let i =0;i<button.length;i++){
+					button[i].checked=true
+				}
+			})
+			s3[0].addEventListener('click',function(){
+				for(let i =0;i<button.length;i++){
+					button[i].checked=false
+					if(s2[0].checked=true){
+						s2[0].checked=false
+					}
+				}
+			})
+		</script>
+	
+</body>
+</html>

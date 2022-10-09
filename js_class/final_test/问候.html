@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        用户名：<input type="text"><button>确定</button>
+        <p></p>
+    </div>
+    <script>
+        var  t =Math.floor(Math.random*20)+1
+        var input=document.querySelector('input')
+        var button=document.querySelector('button')
+        var p=document.querySelector('p')
+        button.addEventListener('click',function(){
+           p.innerHTML=input.value+'，您好！'
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function rotate(nums, k) {
+            if (nums, length == 1) {
+                return nums
+            }
+            if (k > nums.length) {
+                k -= nums.length
+            }
+            nums.unshift(...nums.splice(nums.length - k, k))
+            return nums
+
+        };
+        nums = [1, 2]
+        console.log(rotate(nums, 5));
+    </script>
+
+    <script>
+        function intersect(nums1, nums2) {
+            let num1W = nums1.length;
+            let num2W = nums2.length;
+           nums1.sort((a, b) => a - b)
+            nums2.sort((a, b) => a - b)
+            let left = 0;
+            let right = 0;
+            let newArray = []
+
+            while(left<num1W&&right<num2W) {
+                if (nums1[left] === nums2[right]) {
+                    newArray.push(nums1[left]) 
+                    left++
+                    right++
+                }else nums1[left]>nums2[right]?right++:left++
+                
+                // if (nums1[left] < nums2[right]) {
+                //     left++
+                // }
+            }
+            return newArray
+        };
+        console.log(intersect([4,9,5],[9,4,9,8,4]));
+    </script>
+
+</body>
+
+</html>

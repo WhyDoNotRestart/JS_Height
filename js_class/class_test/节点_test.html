@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 500px;
+            height: 400px;
+        }
+        li{
+            list-style-type: none;
+            margin-right: 100px;
+        }
+        ul{
+            display: flex;
+        }
+        
+    </style>
+</head>
+<body>
+   
+    
+    
+        <ul>
+            <li>
+                <img src="../class_test/素材/4487ef73-97d5-4218-884d-042aed26df71.jpg" alt="">
+                 <button>点击删除</button>
+            </li>
+            <li>
+                <img src="../class_test/素材/51dcd93c-a98e-4635-aa5d-74193c6f1f26.jpg" alt="">
+                <button>点击替换</button>
+            </li>
+            <li>
+                <img src="../class_test/素材/4487ef73-97d5-4218-884d-042aed26df71.jpg" alt="">
+                <button>点击插入</button>
+            </li>
+        </ul>
+
+        <script>
+            var button=document.getElementsByTagName('button');
+            var img=document.getElementsByTagName('img');
+            var li=document.getElementsByTagName('li');
+            button[0].addEventListener('click',function(){
+               // li[0].removeChild(img[0]);
+               img[0].parentNode.removeChild(img[0]);
+            })
+
+            button[1].addEventListener('click',function(){
+                var img_new=document.createElement('img');
+                img_new.setAttribute('src','../class_test/素材/狮子.jpg');
+                img[1].parentNode.replaceChild(img_new,img[1]);
+                //replaceNode(新,旧)
+            })
+
+
+        </script>
+    
+</body>
+</html>

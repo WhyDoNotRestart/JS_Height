@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function tj(){
+    var name = document.getElementById("t").value;
+    var pwd = document.getElementById("p").value;
+    var nameflag,pwdflag;
+    for(var i=0;i<name.length;i++){
+        var str = name.charAt(i);
+        if(!((str>=0&&str<=9)||(str>="A"&&str<="Z")||(str>="a"&&str<="z")))
+         alert("用户名有不合法字符！");	
+        else
+         nameflag = true;
+    }
+    if(pwd.length<5||pwd.length>15)
+      alert("密码长度必须在5-15之!");
+     else
+     pwdflag = true;
+     
+     if( nameflag&& pwdflag)
+       window.location="result.html";
+    
+}
+
+function res(){
+    document.getElementById("form1").value = "";
+}
+</script>
+<body>
+    <form id="form1">
+        昵称：<input type="text" id="t" /><br>
+        密码：<input type="password" id="p" /><br>
+        <input type="button" value="确定" onclick="tj()" />
+        <input type="reset"  onclick="res()"/>
+        </form>
+</body>
+</html>
+
+
+
+

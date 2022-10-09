@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!DOCTYPE html >
+<html>
+<head>
+
+</head>
+
+
+<body>
+	<!--计算圆的周长和面积-->
+	<div>
+		<p>周长：<input id="zc" type="text" value="周长" ></p>
+		<p>面积：<input id="mj" type="text" value="面积" ></p>
+	</div>
+	
+<script>
+	var a = parseFloat(prompt("请输入圆的半径："))
+	const p = 3.14 
+	var b = 2*p*a
+	var c = a*p*a
+	if(Boolean(a)){	
+		
+		if( isNaN(a))
+		alert("输入错误")
+		}
+		else{
+			document.getElementById("zc").value = b.toFixed(2)//toFixed（2）化简小数点后两位
+			document.getElementById("mj").value = c.toFixed(2)
+		}
+		
+	}
+</script>
+   
+</body>
+</html>
+
+
+</body>
+</html>

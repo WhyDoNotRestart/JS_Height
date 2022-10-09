@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        {
+            //async 返回一个promise对象
+            async function fn() {
+                const response = await fetch('http://127.0.0.1:4523/m1/1342827-0-default/user/1') //接收传来的数据
+                const json = await response.json() //将传来的转为json
+                return json
+                //相当于   
+                //  return Promise.resolve(json)
+            }
+            console.log(fn());
+            fn().then(data => {
+                console.log(data);
+            })
+        }
+    </script>
+
+    <script>
+        {
+        var pro=function(delay){
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        console.log((delay/1000)+'秒后输出');
+                    },delay)
+                })
+            }
+
+            async function demo(){
+                var res2=await pro(2000)
+                var res1=await pro(3000);
+                console.log(res1);
+                console.log(res2);
+            }
+            demo()
+        }
+    </script>
+
+    <script>
+        {
+            var p1=new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                },1000)
+                resolve('第一个resolve')
+            })
+            var p2=new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                },2000)
+                resolve('第二个resolve')
+            })
+            // var p3=new Promise((resolve,reject)=>{
+            //     setTimeout(()=>{
+            //     },3000)
+            //     resolve('第三个resolve')
+            // })
+            Promise.all([p1,p2]).then(data=>{
+                console.log(data);
+                //
+            })
+        }
+    </script>
+    
+    <script>
+        {
+             async function f3(){
+                return 'nihao'
+             }
+             f3().then(data=>{
+                console.log(data);
+             })
+
+
+             async function f(){
+                var a1= await f3()  //如果右侧是promise对象 返回成功的值  如果没有 则为undifined
+                //下面代码阻塞 执行完a1后才执行后面
+                
+                console.log(a1);
+                console.log('1');
+             }
+             f()
+        }
+    </script>
+</body>
+
+</html>

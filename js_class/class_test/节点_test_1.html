@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .change{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+		<p id="p1">什么是JavaScript</p>
+		<p>JavaScript是一门功能强大的编程语言</p>
+		<h3>一起来学习JavaScript程序设计</h3>
+		<hr/>
+		<p>JavaScript的发展历史</p>
+
+       
+		</div>
+		<button>删除所有P元素</button>
+		<button>删除指定P元素</button>
+		<button>替换指定的P元素</button>
+        <script>
+            var button =document.getElementsByTagName('button');
+            var p =document.getElementsByTagName('p');
+            
+          button[2].addEventListener('click',function(){
+              var p_new =document.createElement('p');
+              p_new.innerHTML="端午节放几天"
+              p_new.setAttribute('class','change');
+              p[0].parentNode.replaceChild(p_new,p[0]);
+          })
+        </script>
+
+    
+</body>
+</html>

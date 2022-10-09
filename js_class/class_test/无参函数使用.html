@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    宝贝: <input type="text" id="s1"><br>
+    型号：<input type="text" id="s2"><br>
+    <input type="button" value="确定" onclick="gettext()">
+
+    <script>
+       
+        var s1 =document.getElementById('s1').innerHTML;
+        var s2=document.getElementById('s2');
+        function gettext(){
+       // alert('你输入的是：' + s1+s2);
+      alert(s1)
+        console.log(s1);
+
+        }
+        
+    </script>
+
+
+<br>
+<br>
+
+
+半径<input type="text" id="r"><br>
+<input type="button" value="计算周长" onclick="c()"><br>
+<input type="button" value="计算面积" onclick="s()"><br>
+
+
+<script>
+     var r ;
+    function c (){
+
+         r=document.getElementById('r').value;
+        var mm =2*Math.PI*r;
+        alert(mm);
+    }
+    function s (){
+       alert(Math.PI *r *r) ;
+    }
+</script>
+
+</body>
+</html>

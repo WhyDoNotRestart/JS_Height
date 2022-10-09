@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab 栏目切换</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .tabs {
+        width: 400px;
+        display: flex;
+        background-color: #f3f3f3;
+    }
+
+    .tabs .tab {
+        cursor: pointer;
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #333;
+    }
+
+    .tabs .active {
+        cursor: default;
+        background-color: #6DAC26;
+        color: #fff;
+    }
+
+    .content {
+        background-color: #6DAC26;
+        width: 400px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .content .item {
+        display: none;
+    }
+
+    .content .item:first-of-type {
+        display: block;
+    }
+</style>
+
+<body>
+    <ul class="tabs">
+        <li class="tab active">Tab1</li>
+        <li class="tab">Tab2</li>
+        <li class="tab">Tab3</li>
+        <li class="tab">Tab4</li>
+        <li class="tab">Tab5</li>
+    </ul>
+    <ul class="content">
+        <li class="item">这是第一个页面</li>
+        <li class="item">这是第二个页面</li>
+        <li class="item">这是第三个页面</li>
+        <li class="item">这是第四个页面</li>
+        <li class="item">这是第五个页面</li>
+    </ul>
+</body>
+
+<script>
+    var tabs = document.querySelectorAll('.tabs .tab')
+    var content = document.querySelectorAll('.content .item')
+    var tabsLen = tabs.length
+    var contentLen = content.length
+    for (let i = 0; i < tabsLen; i++) {
+        tabs[i].addEventListener('click', function () {
+            this.classList.add('active')
+            content[i].style.display = 'block'
+            for (let j = 0; j < contentLen; j++) {
+                if (i !== j) {
+                    tabs[j].classList.remove('active')
+                    content[j].style.display = 'none';
+                }
+            }
+        })
+    }
+</script>
+
+</html>

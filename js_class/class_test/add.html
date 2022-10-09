@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .change{
+            border: 10px solid red;
+        }
+        div{
+            width: 400px;
+            height: 500px;
+            background-color: rgb(194, 188, 151);
+        }
+    </style>
+</head>
+<body>
+    <button>点击</button>
+    <div class="a1"></div>
+  
+    
+</body>
+<script>
+    var button=document.getElementsByTagName('button')
+    var a1=document.getElementsByClassName('a1');
+    button[0].addEventListener('click',function(){
+        a1[0].innerHTML='<i>你好啊</i>'
+        a1[0].className='change';
+    })
+
+    
+</script>
+</html>

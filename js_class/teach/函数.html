@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//实参与形参
+        //形参有值与 实参的传递
+    var s1 =function(a=8,b=4){
+            console.log(a+b);
+        }
+        s1(1,2); //3
+    //以实参为主
+    </script>
+    <script>
+       var s1= function(a){
+           a=99;
+           console.log(arguments[0]);//99
+           console.log(a);//99
+
+       }
+       s1(100);
+    </script>
+    <script>
+//无重载
+     var s1 =function(a){
+
+     }
+
+     var s1 =function(a,b){
+
+     }
+     //使用第二个函数   后面覆盖前面
+    </script>
+
+
+    
+</body>
+</html>
+<script>
+
+/*
+arguments 函数
+当不确定实参个数
+ 将所有实参放进一个数组  为 arguments
+
+
+
+当形参不确定
+ function(a,...nums)
+
+
+
+ 无重载
+
+
+
+
+*/
+</script>

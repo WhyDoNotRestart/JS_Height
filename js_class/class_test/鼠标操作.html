@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .change{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>单机</li>
+        <li>双击</li>
+        <li>鼠标滑过</li>
+        <li>鼠标花簇</li>
+        <li>按下</li>
+        <li>松开</li>
+    </ul>
+    <script>
+        var lis=document.getElementsByTagName('li');
+         lis[0].onclick=function(){
+             this.style.backgroundColor='blue'
+         }
+         lis[1].dblclick=function(){
+             this.style.color='yellow'
+         }
+         lis[2].onmouseover=function(){
+             this.className='change'
+         }
+         lis[3].onmouseout=function(){
+             this.style.color='green'
+         }
+         lis[3].onmouseup=function(){
+             this.style.color='green'
+         }
+         lis[3].onmousedown=function(){
+             this.style.color='green'
+         }
+    </script>
+</body>
+</html>

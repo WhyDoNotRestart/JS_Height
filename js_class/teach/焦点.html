@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <textarea cols="30" rows="10" maxlength="20"></textarea>
+    <span></span>
+    <script>
+        var text=document.querySelector('textarea');
+        var span =document.querySelector('span')
+        text.onkeyup=function(){
+            var len=text.value.length;
+            console.log(len);
+            span.innerHTML="还可以输入"+(20-len)+"个字符"
+        }
+    </script>
+    <script>
+        var input=document.getElementsByTagName('input');
+        for(let i =0;i<input.length;i++){
+            input[i].value='44444444'
+        }
+
+        input[0].onblur=function(){
+            this.value=''
+        }
+        input[1].onfocus=function(){
+            this.value='你好'
+        }
+        input[1].onselect=function(){
+            this.value='你好a ,a '
+            alert(22)
+        } 
+        input[2].onkeyup=function(){
+            var i=0
+            i++
+            console.log(i);
+            this.value='按下'
+        }
+        input[3].onkeydown=function(){
+            this.value='放开'
+            var i=0
+            i++
+            console.log(i);
+        }
+        input[4].onkeypress=function(){
+            this.value='press'
+            var i=0
+            i++
+            console.log(i);
+        }
+       
+
+        
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首字母大写</title>
+	</head>
+	<body>
+		<script>
+		var str = "border-left-color";
+		// 1.把字符串转成数组
+		var arr = str.split('-');
+		console.log(arr);
+		for(let i in arr){
+			arr[i] = arr[i].substring(0,1).toUpperCase()+arr[i].substring(1);
+			
+		}
+		document.write(arr);
+		document.write("<br>");
+		document.write(arr.join(''));
+		document.write("<br>");
+		document.write(arr.join('-'));
+		</script>
+	</body>
+</html>

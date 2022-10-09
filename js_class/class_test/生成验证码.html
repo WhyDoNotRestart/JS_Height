@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  1.纯数字   2. 纯字母    3.数字加字母   4.图片 -->
+    <input type="text" id="number">
+    <input type="button"  value="生成数字验证码" >
+<hr>
+<hr>
+    <input type="text" >
+    <input type="button"  value="生成字母验证码" >
+<hr>
+<hr>
+<input type="text" >
+<input type="button"  value="生成字母和数字验证码" >
+
+    <script>
+        var input=document.getElementsByTagName('input')
+        var str="";
+        var zimu ='';
+        var zhongjian=''
+        var jihe=''
+        input[1].onclick=function(){
+            var arr =new Array();
+            for(let i=0;i<5;i++){
+               arr[i] =parseInt(Math.random()*(100-5+1))+5+' ';
+               console.log(arr[i]);
+               str=arr[i]+str;
+            }
+            input[0].value=str;
+        }
+        input[3].onclick=function (){
+ 	        var arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+ 	        for(var i=0;i<5;i++){
+            	zimu+=arr[Math.floor(Math.random()*26)];
+ 	        }
+            input[2].value=zimu 
+ }
+        input[5].onclick=function(){
+            var arr2 = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            var arr1 =new Array();
+
+            var jihe1=arr2[(parseInt(Math.random()*(26-1+1))+1)]
+           for(var i =0;i<3;i++){
+           jihe+= arr1[i] =parseInt(Math.random()*(100-5+1))+5+' '+
+           jihe1;
+
+           }
+           input[4].value=jihe
+        }
+
+    </script>
+    
+    
+    
+    <script>
+
+    </script>
+</body>
+</html>

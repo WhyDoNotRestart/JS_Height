@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr><th>操作</th><th>编号</th><th>图书名称</th><th>价格</th></tr>
+        <tr>
+        <td>
+            <input type="checkbox" name="books"></td>
+        
+            <td>1</td><td>javascript 前端开发案例教程</td><td>39.90</td>
+        </tr>
+        <tr>
+        <td>
+            <input type="checkbox" name="books"></td>
+        
+            <td>2</td><td>Vue.js 应用开发</td><td>78.90</td>
+         </tr>
+         <tr>
+         <td>
+             <input type="checkbox" name="books"></td>
+         
+             <td>3</td><td>微信小程序开发</td><td>30.90</td>
+         </tr>
+         <tr><td colspan="4">
+         <button>全选</button>
+         <button>全不选</button>
+         <button>反选</button>
+         </td><tr>
+    </table>
+    <script>
+        var input =document.getElementsByTagName('input')
+        var button =document.getElementsByTagName('button');
+        button[0].addEventListener('click',function(){
+            for(let i=0;i<input.length;i++){
+                input[i].checked=true;
+            }
+        })
+        button[1].addEventListener('click',function(){
+            for(let i=0;i<input.length;i++){
+                input[i].checked=false;
+            }
+        })
+        button[2].addEventListener('click',function(){
+            for(let i=0;i<input.length;i++){
+             input[i].checked=!input[i].checked;
+            }
+        })
+    </script>
+</body>
+</html>

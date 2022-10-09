@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>课工场论坛列表</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			font-family: "Arial", "΢���ź�";
+		}
+
+		ul,
+		li {
+			list-style: none;
+		}
+
+		.bbs {
+			margin: 0 auto;
+			width: 600px;
+			position: relative;
+		}
+
+		header {
+			padding: 5px 0;
+			border-bottom: 1px solid #cecece;
+		}
+
+		header span {
+			display: inline-block;
+			width: 220px;
+			height: 50px;
+			color: #fff;
+			background: #009966;
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 50px;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+
+		.post {
+			position: absolute;
+			background: #ffffff;
+			border: 1px #cccccc solid;
+			width: 500px;
+			left: 65px;
+			top: 70px;
+			padding: 10px;
+			font-size: 14px;
+			z-index: 999999;
+			display: none;
+		}
+
+		.post .title {
+			width: 450px;
+			height: 30px;
+			line-height: 30px;
+			display: block;
+			border: 1px #cecece solid;
+			margin-bottom: 10px;
+		}
+
+		.post select {
+			width: 200px;
+			height: 30px;
+		}
+
+		.post .content {
+			width: 450px;
+			height: 200px;
+			display: block;
+			margin: 10px 0;
+			border: 1px #cecece solid;
+		}
+
+		.post .btn {
+			width: 160px;
+			height: 35px;
+			color: #fff;
+			background: #009966;
+			border: none;
+			font-size: 14px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 35px;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+
+		.bbs section ul li {
+			padding: 10px 0;
+			border-bottom: 1px #999999 dashed;
+			overflow: hidden;
+		}
+
+		.bbs section ul li div {
+			float: left;
+			width: 60px;
+			margin-right: 10px;
+		}
+
+		.bbs section ul li div img {
+			border-radius: 50%;
+			width: 60px;
+		}
+
+		.bbs section ul li h1 {
+			float: left;
+			width: 520px;
+			font-size: 16px;
+			line-height: 35px;
+		}
+
+		.bbs section ul li p {
+			color: #666666;
+			line-height: 25px;
+			font-size: 12px;
+		}
+
+		.bbs section ul li p span {
+			padding-right: 20px;
+		}
+
+		.change {
+			float: left;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="bbs">
+		<header><span>我要发帖</span></header>
+		<section>
+			<ul id="postList"></ul>
+		</section>
+		<div class="post" id="post">
+			<input class="title" placeholder="请输入标题（1-50个字符）" id="title">
+			所属版块：<select id="sec">
+				<option>请选择版块</option>
+				<option>电子书籍</option>
+				<option>新课来了</option>
+				<option>新手报到</option>
+				<option>职业规划</option>
+			</select>
+			<textarea class="content" id="content"></textarea>
+			<input class="btn" value="发布">
+		</div>
+	</div>
+	<script>
+		var input = document.getElementsByTagName('input')
+		var header = document.getElementsByTagName('header');
+		header[0].addEventListener('click', function () {
+			document.getElementById('post').style.display = 'block'
+
+		})
+
+		function get_time() {
+			var s1 = new Date();
+			var year = s1.getFullYear();
+			var month = s1.getMonth() + 1;
+			var data = s1.getDate();
+			var time = s1.getHours();
+			var second = s1.getSeconds();
+			var minutes = s1.getMinutes();
+			time = year + ':' + month + ':' + data + ':' + time + ':' + second + ':' + minutes;
+			console.log(time);
+			return time;
+		}
+
+		input[1].addEventListener('click', function () {
+			//随机头像
+			var pictures = ['../制作论坛发贴/images/tou01.jpg', '../制作论坛发贴/images/tou02.jpg',
+				'../制作论坛发贴/images/tou03.jpg', '../制作论坛发贴/images/tou04.jpg'
+			];
+			var random = Math.floor(Math.random() * 4);
+
+
+			//创建发言
+			//列表
+			var li = document.createElement('li');
+			//div
+			var div = document.createElement('div');
+			//头像
+			var picture = document.createElement('img');
+			picture.setAttribute('src', pictures[random])
+
+			//标题
+			var input = document.getElementsByTagName('input');
+			var title = document.createElement('h1');
+			title.innerHTML = input[0].value;
+			console.log(title);
+			//	div.appendChild('title');
+
+			//段落
+			var p_new = document.createElement('p');
+			var span_new1 = document.createElement('span');
+			var span_new2 = document.createElement('span');
+			//获取选择的值
+			var value = document.getElementsByTagName('select')[0].value;
+			span_new1.innerHTML = '板块：' + value;
+			//存放时间
+			span_new2.innerHTML = get_time();
+
+
+			//排版
+			div.appendChild(picture);
+			p_new.appendChild(span_new1);
+			p_new.appendChild(span_new2);
+			li.appendChild(div);
+			li.appendChild(title)
+			li.appendChild(p_new)
+
+			//插入
+			var ul = document.getElementsByTagName('ul');
+			ul[0].insertBefore(li, ul[0].firstChild);
+			document.getElementById('post').style.display = 'none';
+
+			//点击隐输入
+			var ul = document.getElementsByTagName('ul');
+			header[0].addEventListener('click', function () {
+				ul[0].style.display = 'none';
+			})
+			//点击显示已发表列表
+			input[1].addEventListener('click', function () {
+				ul[0].style.display = 'block'
+			})
+
+
+
+
+
+		})
+	</script>
+</body>
+
+</html>

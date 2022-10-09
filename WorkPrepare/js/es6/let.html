@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="../../../../学习文件/编程笔记/图片存放/作用域.png" alt="">
+    <script>
+        {
+            /*
+            变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i
+            所有数组a的成员里面的i，指向的都是同一个i，
+            导致运行时输出的是最后一轮的i的值，也就是 10。
+            在for内部可以正常使用  到外部 指向的是最后一个i
+            */
+
+            /*
+            
+            变量i是let声明的，当前的i只在本轮循环有效，
+            使用for 用let 声明 在每次循环都会生成一个新的作用域 
+                并且将循环变量绑定到作用域中 每次循环完成都会被销毁
+            所以每一次循环的i其实都是一个新的变量
+            */
+            var receive = []
+            var a = [];
+            for (var i = 0; i < 10; i++) {
+                receive.unshift(i)
+                a[i] = function un() {
+                    // console.log(i);
+                    return i
+                };
+                a[i]()
+            }
+            //console.log(i);
+            console.log(a);
+            console.log(receive);
+            a[7]()
+        }
+    </script>
+
+    <script>
+        {
+            /*外层代码块不受内层代码块的影响*/
+            function f1() {
+                let n = 1;
+                if (true) {
+                    let n = 0
+                }
+                console.log(n);
+            }
+            f1()
+        }
+    </script>
+
+    <!-- 作用域 -->
+    <script>
+        {
+            {
+                let x = 1
+
+                function f(p = x + 1) {
+                    let x = 2
+                    console.log(x); //2
+                    console.log(p); //2    1+1  
+                    //访问到外部的x
+                    /*
+                    上面代码中，函数f调用时，参数p=x+1形成一个单独的作用域。
+                    这个作用域里面，变量x本身没有定义，所以指向外层的全局变量x。
+                    函数调用时，函数体内部的局部变量x影响不到默认值变量x。
+                    */
+                }
+                f()
+            }
+
+            {
+                var x = 1;
+                function f(x, y = x) {
+                    console.log(y);
+                }
+                f(2) // 2
+                //调用函数f时，参数形成一个单独的作用域。
+                //在这个作用域里面，默认值变量x指向第一个参数x，而不是全局变量x，所以输出是2。
+
+
+                let foo = 'outer';
+
+                function bar(func = () => foo) {
+                    let foo = 'inner';
+                    console.log(func());
+                }
+                bar(); // outer
+                /*
+                函数参数形成的单独作用域里面，并没有定义变量foo，
+                所以foo指向外层的全局变量foo，因此输出outer。
+                */
+            }
+
+            {
+                let x = 4;
+                function fn(y = function () {
+                    console.log(x);
+                }) {
+                    let x = 100;
+                    y() // 4
+                    console.log(x); //100  如果去掉 let x =100  输出4
+                }
+                fn()
+                console.log('===');
+
+                var z = 1
+
+                function foo(z, n = function () {
+                    console.log(z);  //400
+                    z = 2;
+                    console.log(z);
+                }) {
+                    console.log(z);  //400
+                    var z = 3
+                    n() //2
+                    console.log(z); //3
+                }
+                foo(400) 
+                console.log('--');     
+             foo()           // 117 :undefined
+                console.log(z); //1
+            }
+
+            /*
+            首先在函数参数中 形成一个作用域 
+            
+            */
+
+
+        }
+    </script>
+
+</body>
+
+</html>

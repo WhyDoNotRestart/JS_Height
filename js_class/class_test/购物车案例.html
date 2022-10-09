@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <table>
+         <div class="div">
+             物品1单价： <input type="text" class="shop1">  <br>
+              数量    ： <input type="text" class="amount1">
+             <br>
+             物品2单价：<input type="text" class="shop2">  <br>
+              数量    ：<input type="text" class="amoutn2">
+             <br>
+             <br>
+             <input type="radio" name="r" value=" 5" onclick="f1(this.value)"/>中通
+		    <input type="radio" name="r" value="8 " onclick="f1(this.value)"/>顺风
+		    <input type="radio" name="r" value="19 " onclick="f1(this.value)"/>EMS
+		    <br>
+		    运费:<input type="text" id="t1" />
+             <br>
+             <input type="text" class="text">
+             <input type="button" class="sum" value="结算" onclick="f2('10')"><br>
+		    <a href="javascript:tj()" onclick="">提交订单</a>
+		<script>
+           var shop1_price=document.getElementsByClassName('shop1');
+            var  s1= parseInt (shop1_price[0].value);
+               var amount1=parseInt(document.getElementsByClassName('amount1').value);
+           var shop2_price=parseInt(document.getElementsByClassName('shop2').value);
+               var amount2=parseInt(document.getElementsByClassName('amount2').value);
+           var count = (shop1_price*amount1)+(shop2_price*amount2);
+           console.log(count);
+           console.log(s1);
+          
+           var sum = document.getElementsByClassName('sum');
+        function f2(abc){
+            document.getElementsByClassName('text').value=abc;
+
+        }
+		function f1(num){
+			document.getElementById("t1").value = num;
+		}
+
+		function tj(){
+			var a =document.getElementById('t2').value;
+			var b =document.getElementById('t1').value;
+			var sum =Number(a)+Number(b);
+			alert('你好')
+		}
+		</script>
+         </div> 
+     </table>
+</body>
+</html>

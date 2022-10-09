@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="f1()">
+    <div class="a1"> <p>查看您所访问的对象</p></div>
+    <hr>
+    <div class="a2">
+        您已经花费了时间：
+        <input type="text" name="" id="">
+    </div>
+    <script>
+        var body=document.getElementsByTagName('body');
+        var input =document.getElementsByTagName('input');
+        var t =new Date();
+        function f1(){
+            var t1 =new Date();
+            var time =Math.floor((t1.getTime()-t.getTime())/1000);
+            var min =Math.floor(time/60)%60;
+            var sc =time%60;
+
+            if(sc<10){
+                sc="0"+sc;
+            }
+            if(min<10){
+                min="0"+min;
+            }
+            input[0].value=min+':' + sc;
+            setTimeout(f1,1000);
+        }
+    </script>
+
+   
+</body>
+</html>

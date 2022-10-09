@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+
+        }
+        li{
+            width: 80px;
+            height: 80px;
+            background-color: blueviolet;
+            float: left;
+            margin-right:10 ;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <button>添加li</button>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+
+    <script>
+        var li =document.getElementsByTagName('li');
+        for(let i=0;i<li.length;i++){
+            li[i].addEventListener('click',function(e){
+              //  this.style.backgroundColor='yellow'
+              //  e.target.style.backgroundColor='yellow'
+                  e.currentTarget.style.backgroundColor='yellow'
+            })
+        }
+    </script>
+   <script>
+       var ul=document.querySelector('ul')
+         var button=document.getElementsByTagName('button');
+         button[0].addEventListener('click',function(){
+             var li=document.createElement('li')
+         })
+         ul.appendChild(li)
+    </script>
+    
+</body>
+</html>

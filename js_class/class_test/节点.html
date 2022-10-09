@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <button>添加在最后</button>
+    <button>删除</button>
+    <button>指定位置添加</button>
+  <script>
+      var btns=document.getElementsByTagName('button');
+       btns[0].addEventListener('click',function(){
+           var li_new =document.createElement('li');
+           li_new.innerHTML='南京';
+           li_new.setAttribute('id','linew');
+			  //把这个节点添加在最后！！
+			//所有节点的操作增加、删除、替换等都要找父亲
+			var ul_name = document.querySelector('ul');
+			ul_name.append(li_new);	
+			
+        btns[1].addEventListener('click',function(){
+            var lis=document.getElementsByTagName('li');
+            
+            
+            
+            lis[0].parentNode.removeChild(lis[0]);
+            //lis[0]的父节点   删除子节点（lis[0]）
+        })
+        btns[2].addEventListener('click',function(){
+            var li_new =document.createElement('li');
+           li_new.innerHTML='南京';
+           li_new.setAttribute('id','linew');
+
+           var ulname =document.getElementsByTagName('ul');
+           var s1 =document.getElementsByTagName('li');
+
+
+           //指定位置插入
+           ulname[0].insertBefore(li_new,s1[1]);
+
+           s1[1].parentNode.removeChild(li_new,s1[1]);
+
+
+
+           
+        })
+
+       })
+  </script>
+
+    
+</body>
+</html>

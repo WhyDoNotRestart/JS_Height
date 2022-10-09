@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        {
+            //普通for
+            {
+                let arr = [1, 2, 3];
+                let len = arr.length //使用一个变量将其缓存起来,从而达到性能的优化
+                for (let i = 0; i < len; i++) {
+                    console.log(arr[i]) // 1 2 3
+                }
+            }
+
+            //for in  遍历对象
+            {
+                const obj = {
+                    a: 1,
+                    b: 2,
+                    c: 3
+                }
+                for (let i in obj) {
+                    console.log(i + ":" + obj[i]); // a 1  b 2  c 3
+                }
+            }
+
+            //for of 遍历数组
+            {
+                let arr = [11, 22, 33];
+                for (let i of arr) {
+                    console.log(i); // 11  22  33
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

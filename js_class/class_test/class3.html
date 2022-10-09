@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	
+    宝贝:<input type="text" id="t1"><br>
+	款式:<input type="text" id="t2"><br>
+	<input type="button" value="确定" onclick="f1()" />
+	<p id="p1"></p>
+	<script>
+	function f1(){
+		// 1.获取文本框里面的值
+		var t1 = document.getElementById("t1").value;
+		var t2 = document.getElementById("t2").value;
+		
+		// 2.显示一下
+		alert("您要搜索的是："+t1+t2);
+		document.getElementById("p1").innerHTML = "您要搜索的是："+t1+t2;
+		
+	}
+	</script>
+</body>
+</html>

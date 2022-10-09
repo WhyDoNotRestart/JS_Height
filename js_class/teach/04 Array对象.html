@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Array对象</title>
+		<script>
+			var group = new Array();
+			group[] = "壁纸/";
+
+			function change(num) {
+				document.getElementById("image1").src = group[num];
+			}
+			var array = new Array();
+			array[0] = "web前端应用开发主要学习的是js，jQuery......";
+			array[1] = "java高级主要是面向对象、线程、UI....";
+			array[2] = "mysql主要是数据的增删改查....";
+			function change2(){			
+				var index = document.getElementById("s1").selectedIndex;
+				document.getElementById("textarea1").value = array[index];
+			}
+		</script>
+	</head>
+	<body>
+		<img src="image/1.jpg" width="100px" height="100px" id="image1" /><br>
+		<a href="javascript:change(1)">1</a>
+		<a href="javascript:change(2)">2</a>
+		<a href="javascript:change(3)">3</a>
+		<a href="javascript:change(4)">4</a>
+		<br><br><br><br><br>
+		<select id="s1" onchange="change2()">
+			<option value="">Web前端应用开发</option>
+			<option value="">Java高级</option>
+			<option value="">mysql数据库</option>
+		</select><br>
+		<textarea id="textarea1" rows="8" cols="30">这里为你介绍课程</textarea>
+	</body>
+</html>

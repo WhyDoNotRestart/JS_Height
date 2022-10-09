@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        {
+            //返回对象
+            //需要加括号
+            {
+                let getTempItem = id => ({
+                    id: id,
+                    name: "Temp"
+                });
+            }
+
+            //解构结合
+            {
+                person={
+                    first:'1',
+                    last:'2'
+                }
+                 full_1 = ({
+
+                    first,
+                    last
+                }) => first + ' ' + last;
+
+                // 等同于
+                function full_2(person) {
+                    return person.first + ' ' + person.last;
+                }
+              console.log( full_1(person)); 
+            }
+
+
+           
+        }
+    </script>
+
+</body>
+
+</html>

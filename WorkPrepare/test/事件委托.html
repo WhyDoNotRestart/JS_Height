@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            background-color: aqua;
+            width: 300px;
+            height: 300px;
+        }
+
+        .big {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .small {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outer">
+        <div class="big">
+            <div class="small"></div>
+        </div>
+    </div>
+
+    <div>
+        <input type="text" name="" id="">
+        <button>添加</button>
+        <ul>
+            <li>香蕉</li>
+            <li>苹果</li>
+            <li>草莓</li>
+        </ul>
+    </div>
+</body>
+<script>
+    //默认事件冒泡   从里到外
+    var div = document.getElementsByTagName('div')
+    div[0].onclick = function (e) {
+        // console.log(this);
+        // console.log(this.className);
+        console.log(e.target);
+    }
+    div[1].onclick = function (e) {
+        // console.log(this);
+        // console.log(this.className);
+        console.log(e.target);
+    }
+    div[2].onclick = function (e) {
+        // console.log(this);
+        // console.log(this.className);
+        console.log(e.target);
+    }
+</script>
+
+<!-- 事件委托：子级的事件由父级来处理 -->
+<script>
+    let li = document.getElementsByTagName('li')
+    let ul = document.getElementsByTagName('ul')
+    let but = document.getElementsByTagName('button')
+    let input = document.getElementsByTagName('input')
+    but[0].onclick = function () {
+        var newLi = document.createElement('li')
+        newLi.innerHTML = input[0].value
+        ul[0].appendChild(newLi)
+    }
+
+    //正常删除
+    //   for (let i = 0; i < li.length; i++) {
+    //         li[i].onclick=function(){
+    //             ul[0].removeChild(this)
+    //         }
+    // }
+    // 这种方式 在添加之后不能删除
+
+
+    //事件委托： 事件代理  删除
+        //通过事件捕获向内 
+        //将原本的点击子元素删除的处理交给父元素  
+
+
+    ul[0].onclick = function (e) {
+        ul[0].removeChild(e.target)
+    }
+</script>
+
+</html>

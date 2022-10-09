@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        //  in  对象  of 数组
+        //对象深拷贝
+        {
+            let obj = {
+                name: '小明',
+                age: 19,
+                friend: {
+                    name: '小刚'
+                }
+            }
+
+
+            let newObj = {}
+
+
+            
+            for (const key in obj) {
+                console.log(key);
+                newObj[key] = obj[key]
+            }
+
+            //放入就obj 返回 第一层 深拷贝的对象
+            let copy = function (obj) {
+                let newObj = {}
+                for (const key in obj) {
+                    newObj[key] = obj[key]
+                }
+                return newObj
+            }
+
+
+            let copy1 = function (obj) {
+                let newObj = {}
+                for (let key in obj) {
+                    if (obj[key] instanceof Object) {
+                        newObj[key] = copy(obj[key])
+                    } else {
+                        newObj[key] = obj[key]
+                    }
+                }
+                return newObj
+            }
+
+            let copy2 = function (obj) {
+                let newObj = {}
+                return newObj = JSON.parse(JSON.stringify(onj))
+            }
+
+            let obj1 = copy1(obj)
+            obj1.friend.name = '小红'
+            console.log(obj);
+            console.log(obj1);
+
+        }
+    </script>
+
+
+    <script>
+        function deepCopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                var item = oldobj[k];
+                if (item instanceof Array) {
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item)
+                } else if (item instanceof Object) {
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item)
+                } else {
+                    newobj[k] = item;
+                }
+            }
+        }
+    </script>
+
+
+
+
+
+    <script>
+        // 深拷贝拷贝多层, 每一级别的数据都会拷贝.
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['pink', 'red']
+        };
+        var o = {};
+        // 封装函数 
+        function deepCopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                // 判断我们的属性值属于那种数据类型
+                // 1. 获取属性值  oldobj[k]
+                var item = oldobj[k];
+                // 2. 判断这个值是否是数组
+                if (item instanceof Array) {
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item)
+                } else if (item instanceof Object) {
+                    // 3. 判断这个值是否是对象
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item)
+                } else {
+                    // 4. 属于简单数据类型
+                    newobj[k] = item;
+                }
+            }
+        }
+        deepCopy(o, obj);
+        console.log(o);
+
+        var arr = [];
+        console.log(arr instanceof Object);
+        o.msg.age = 20;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

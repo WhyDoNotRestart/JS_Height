@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <h1>这是我喜欢的图片</h1>
+    <div class="s1">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+    <div>
+        <img  alt="">
+    </div>
+    <script>
+        var s1 ='素材/0158a15e4d245da8012165184e0709.jpg@1280w_1l_2o_100sh.jpg';
+        var s2='素材/4487ef73-97d5-4218-884d-042aed26df71.jpg'
+        var s3 ='素材/狮子.jpg'
+        var arr=[s1,s2,s3];
+        var div =document.getElementsByTagName('div');
+        var button=document.getElementsByTagName('button');
+        var img =document.getElementsByTagName('img')
+        img[0].setAttribute('src','素材/4487ef73-97d5-4218-884d-042aed26df71.jpg')
+
+        for(let i=0;i<button.length;i++){
+            button[i].addEventListener('click',function(){
+                var index =arr[Math.floor(Math.random()*4)];
+                console.log(arr[Math.floor(Math.random()*4)]);
+              img[0].setAttribute('src',' arr[index] ');
+           //  img[0].src='arr[index]'
+            })
+        }
+    </script>
+    
+</body>
+</html>

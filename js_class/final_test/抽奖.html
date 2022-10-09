@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       body>div{
+           width: 610px;
+           height: 610px;
+           margin: 100px auto;
+           justify-content: space-around;
+         
+       }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        ul li{
+            list-style-type: none;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 200px;
+            border: 1px solid white;
+        }
+        .change{
+            background-color: red;
+        }
+        .a1{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <ul>
+            <li>100</li>
+            <li>200</li>
+            <li>300</li>
+            <li>800</li>
+            <li >
+                <button>开始</button>
+                <button>停止</button>
+            </li>
+            <li>600</li>
+            <li>700</li>
+            <li>500</li>
+            <li>980</li>
+        </ul>
+    </div>
+
+
+    <script>
+        var li =document.getElementsByTagName('li')
+        var button =document.getElementsByTagName('button');
+        var arr=[0,1,2,5,8,7,6,3];
+        num=0;
+        var time
+        button[0].addEventListener('click',function(){
+            clearInterval(time)
+             time =setInterval(function(){
+                li[arr[num]].className=''
+                num++;
+                if(num>7){
+                    num=0
+                }
+                li[arr[num]].className='change'
+            },80)
+        })
+        button[1].addEventListener('click',function(){
+            clearInterval(time);
+        })
+     
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	宝贝价格： <input type="text" name="" id="t2">
+    <input type="radio" name="r" value=" 5" onclick="f1(this.value)"/>中通
+		<input type="radio" name="r" value=" 15" onclick="f1(this.value)"/>顺风
+		<input type="radio" name="r" value=" 20" onclick="f1(this.value)"/>EMS
+		<br>
+		运费:<input type="text" id="t1" />
+
+		<a href="javascript:tj()">提交订单</a>
+		<script>
+		function f1(num){
+			document.getElementById("t1").value = num;
+		}
+
+		function tj(){
+			var a =document.getElementById('t2').value;
+			var b =document.getElementById('t1').value;
+			var sum =Number(a)+Number(b);
+			alert("hahoahaohahoa");
+		}
+		</script>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        add_img{
+            width: 1000px;
+            height:1000px;
+            display: block;
+            z-index:99;
+        }
+        .add_div{
+            background-color: rgba(213, 24, 24, 0.689);
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var body =document.getElementsByTagName('body');
+        setTimeout(function(){
+            var img=document.createElement('img');
+            var add_div=document.createElement('div')
+            add_div.className='add_div';
+            img,className='add_img'
+            img.src="../teach/壁纸/wallhaven-2ez2wg.jpg";
+            body[0].appendChild(img);
+            body[0].appendChild(add_div)
+            
+            img.click =function(){
+                body[0].remove(img);
+                body[0].removeChild(add_div);
+            }
+
+          
+
+        },2*1000)
+    </script>
+    
+</body>
+</html>

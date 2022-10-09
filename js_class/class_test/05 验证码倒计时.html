@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1</title>
+	</head>
+	<body>
+		手机号码：
+		<input  type="text" />
+		<button id="b1">发送</button>
+		<p id="p1"></p>
+		<script>
+			var btn = document.getElementById("b1");
+			var num = 3;
+			btn.addEventListener('click',function(){
+				btn.disabled = true; //按钮不可用
+				var timer = setInterval(function(){
+					if(num == 0){
+						clearInterval(timer);
+						btn.disabled = false;
+						btn.innerHTML = "再次发送";
+						var str="";
+						for(let i=0;i<4;i++)
+						 str+= Math.floor(Math.random()*10);
+						 document.getElementById("p1").innerHTML = str;
+					}
+					else{
+						btn.innerHTML = '还剩下'+num+'秒';
+						num--;
+					}
+				},1000);
+			})
+			
+		</script>
+	</body>
+</html>

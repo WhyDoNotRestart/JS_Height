@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #box{
+            width: 800px;
+            margin: 0 auto;
+        }
+        .tab-head ul{
+            list-style: none;
+            background-color: blanchedalmond;
+            height: 40px;
+        }
+        .tab-head ul li{
+            float: left;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            width: 150px;
+        }
+        .item{
+            color:red;
+            display: none;
+        }
+        .tab-head .current{
+            background-color: red;
+        }
+        .current{
+            display: block;
+        }
+        .tab-body1{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="tab-head">
+            <ul>
+                <li>学校首页</li>
+                <li>走进南信</li>
+                <li>未来学生</li>
+                <li>信息公开</li>
+            </ul>
+        </div>
+        <div class="tab-body ">
+            <div class="tab-body1"  style="display:block;" >我是学校首页模块</div>
+            <div class="tab-body1" >我是走进南信模块</div>
+            <div class="tab-body1">我是未来学生模块</div>
+            <div class="tab-body1">我是信息公开模块</div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Math对象</title>
+	</head>
+	<body>
+		<script>
+		var num = 8.8;
+		console.log(Math.round(num));//四舍五入
+		console.log(Math.floor(num));//向下取整
+		console.log(Math.random());//0-1
+		console.log(Math.max(100,200,300,52,45));
+		// 生成0-100之间的随机数
+		var num2 = Math.floor(Math.random()*100);
+		console.log(num2);
+		//生成m-n之间的随机数   20-40
+		var num3 = Math.floor(Math.random()*(40 - 20) + 20);
+		console.log(num3);
+		</script>
+<!-- 		第一个例子  生成一个0-100之间的随机数，然后求平方根； -->
+		<input type="button" onclick = "f1()" value="随机生成0-100之间的整数" />
+		<input type="button" onclick = "f2()" value="求这个整数的平方根" />
+		<script>
+		var a;//定义成全局变量
+		function f1(){
+			 a = Math.floor(Math.random()*100);
+			alert(a); 
+			}
+		function f2(){
+			var b =Math.sqrt(a);
+			alert("这个整数的平方根是"+b);
+		}
+		</script>
+	</body>
+</html>
